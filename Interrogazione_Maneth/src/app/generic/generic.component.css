@@ -1,0 +1,79 @@
+/* Contenitore principale */
+div {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Titolo principale */
+  h2 {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Separatore tra le sezioni */
+  hr {
+    border: 1px solid #ddd;
+    margin: 20px 0;
+  }
+  
+  /* Ogni elemento della lista */
+  div > div {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Nome dell'elemento */
+  h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Categoria e Gruppo */
+  p {
+    font-size: 16px;
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  /* Categoria e Gruppo in grassetto */
+  strong {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Codice HTML e Unicode */
+  p > strong {
+    color: #000;
+  }
+  
+  /* Codice HTML e Unicode */
+  p *ngIf {
+    font-style: italic;
+    color: #888;
+  }
+  
+  /* Emojis */
+  span {
+    font-size: 28px;
+    margin-top: 10px;
+  }
+  
+  /* Messaggio "No data available" */
+  ng-template {
+    text-align: center;
+    color: #f44336;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 40px;
+  }
+  
