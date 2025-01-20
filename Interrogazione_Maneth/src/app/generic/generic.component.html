@@ -1,0 +1,41 @@
+<!-- Controllo se ci sono dati da visualizzare -->
+<div *ngIf="someInf && someInf.length > 0; else noData">
+  <h2>Food and Drink Emojis</h2>
+
+  <!-- Itera su ogni elemento di someInf -->
+  <div *ngFor="let item of someInf">
+    <div>
+      <!-- Nome dell'elemento -->
+      <h3>{{ item.name }}</h3>
+
+      <!-- Categoria -->
+      <p><strong>Category:</strong> {{ item.category }}</p>
+
+      <!-- Gruppo -->
+      <p><strong>Group:</strong> {{ item.group }}</p>
+
+      <!-- Codice HTML -->
+      <p *ngIf="item.htmlCode.length > 0">
+        <strong>HTML Code:</strong> {{ item.htmlCode.join(', ') }}
+      </p>
+
+      <!-- Codice Unicode -->
+      <p *ngIf="item.unicode.length > 0">
+        <strong>Unicode:</strong> {{ item.unicode.join(', ') }}
+      </p>
+
+      <!-- Emoji (renderizzato usando htmlCode) -->
+      <p *ngIf="item.htmlCode.length > 0">
+        <strong>Emoji:</strong>
+        <span [innerHTML]="item.htmlCode.join(' ')"></span>
+      </p>
+
+      <hr> <!-- Separatore tra gli elementi -->
+    </div>
+  </div>
+</div>
+
+<!-- Template per quando non ci sono dati -->
+<ng-template #noData>
+  <p>No data available. Please try again.</p>
+</ng-template>
