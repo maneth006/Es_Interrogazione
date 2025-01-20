@@ -1,6 +1,4 @@
-export type Root = Root2[]
-
-export interface Root2 {
+export interface Emoji {
   name: string
   category: string
   group: string

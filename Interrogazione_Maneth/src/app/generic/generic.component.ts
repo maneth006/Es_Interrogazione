@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Root } from '../models/generic.models';
+import { Emoji } from '../models/generic.models';
 @Component({
   selector: 'app-generic',
   templateUrl: './generic.component.html',
@@ -10,12 +10,12 @@ import { Root } from '../models/generic.models';
 })
 export class GenericComponent {
   someInf!: any;
-  apiObservable!: Observable<Root>;
+  apiObservable!: Observable<Emoji[]>;
   constructor(public route: ActivatedRoute, private http: HttpClient) {
     this.route.params.subscribe(this.getparams);
   }
 
-  getparams = (params: any,) => {
+  getparams = (params: any) => {
     console.log(params['food']);
     let foodCategory = params['food'];
     this.apiCall(foodCategory);
@@ -25,7 +25,7 @@ export class GenericComponent {
   apiCall = (foodCategory : string) => {
     //Richiama le API a te assegnate aggiungendo il nome della categoria passato come parametro
     const apiUrl = `https://emojihub.yurace.pro/api/all/category/${foodCategory}`;
-    this.apiObservable = this.http.get<Root>(`${apiUrl}`); //Aggiungi un tipo di dati alla chiamata http.get
+    this.apiObservable = this.http.get<Emoji[]>(`${apiUrl}`); //Aggiungi un tipo di dati alla chiamata http.get
     this.apiObservable.subscribe(
       {
         next: this.handleApiResponse, //IF OK
@@ -34,7 +34,7 @@ export class GenericComponent {
     );
   }
 
-  handleApiResponse = (response: any) => {
+  handleApiResponse = (response: Emoji[]) => {
     console.log(response);
     this.someInf = response;
   };
@@ -43,7 +43,5 @@ export class GenericComponent {
     console.log(error);
     alert('Si è verificato un errore nel caricamento dei dati.');
   };
-  objectKeys(obj: any): string[] {
-    return Object.keys(obj);
-  }
+
 }
